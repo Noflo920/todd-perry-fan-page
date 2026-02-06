@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todd Perry Fan Page 🏆</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0c1220 0%, #1a0a2e 30%, #0c1220 60%, #0a1628 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 71, 171, 0.08) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-2%, 2%) rotate(3deg); }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(218, 165, 32, 0.6);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(218, 165, 32, 0.4);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #daa520;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            background: rgba(218, 165, 32, 0.05);
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #daa520 50%, #fff 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-title {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-company {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 600;
+            color: #daa520;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid rgba(218, 165, 32, 0.5);
+            border-bottom: 2px solid rgba(218, 165, 32, 0.5);
+            transform: rotate(45deg);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(90deg, #0c1220, #1a1a2e, #0c1220);
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            padding: 3rem 2rem;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #daa520;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #daa520;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #daa520, rgba(218, 165, 32, 0.1));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(218, 165, 32, 0.03);
+            border-color: rgba(218, 165, 32, 0.2);
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2.5rem;
+            width: 14px;
+            height: 14px;
+            background: #daa520;
+            border-radius: 50%;
+            transform: translateX(-6px);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.5);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #daa520;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Highlights Cards */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(218, 165, 32, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #daa520, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(218, 165, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(218, 165, 32, 0.1);
+        }
+
+        .highlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-text {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Education */
+        .education-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(204, 0, 0, 0.15);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(204, 0, 0, 0.1);
+        }
+
+        .education-logo {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        .education-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #cc0000;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-years {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+        }
+
+        /* Marquee */
+        .marquee-section {
+            overflow: hidden;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(218, 165, 32, 0.1);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+            background: rgba(218, 165, 32, 0.02);
+        }
+
+        .marquee {
+            display: flex;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: rgba(218, 165, 32, 0.3);
+            padding: 0 2rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Fan Quote Section */
+        .fan-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(218, 165, 32, 0.03), transparent);
+        }
+
+        .fan-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+        }
+
+        .fan-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #daa520;
+            display: block;
+            line-height: 1;
+            margin-bottom: -1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+        }
+
+        footer .heart {
+            color: #daa520;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Counter Animation */
+        .counter {
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-grid {
+                gap: 2rem;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .timeline {
+                padding-left: 2rem;
+            }
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">★ The Official Fan Page ★</div>
+            <h1 class="hero-name">Todd Perry</h1>
+            <p class="hero-title">Managing Director — Investments Private Wealth Financial Advisor</p>
+            <p class="hero-company">Margate Wealth Management Group · Wells Fargo Advisors</p>
+            <p class="hero-tagline">Over two decades of excellence in wealth management. From Lehman Brothers to Wells Fargo, leading teams managing $15B+ in total assets. Forbes Top 100 Advisor. Transforming financial futures from Wall Street's finest institutions.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number"><span class="counter" data-target="28">0</span>+</div>
+                <div class="stat-label">Years in Finance</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$<span class="counter" data-target="15">0</span>B+</div>
+                <div class="stat-label">Total Assets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+                <div class="stat-label">Elite Institutions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number"><span class="counter" data-target="33">0</span></div>
+                <div class="stat-label">States Registered</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee">
+            <span>WELLS FARGO ✦</span>
+            <span>UBS ✦</span>
+            <span>DEUTSCHE BANK ✦</span>
+            <span>MERRILL LYNCH ✦</span>
+            <span>LEHMAN BROTHERS ✦</span>
+            <span>$15B+ ASSETS ✦</span>
+            <span>RUTGERS UNIVERSITY ✦</span>
+            <span>MANAGING DIRECTOR ✦</span>
+            <span>SHORT HILLS, NJ ✦</span>
+            <span>MARGATE WEALTH MANAGEMENT ✦</span>
+            <span>WELLS FARGO ✦</span>
+            <span>UBS ✦</span>
+            <span>DEUTSCHE BANK ✦</span>
+            <span>MERRILL LYNCH ✦</span>
+            <span>LEHMAN BROTHERS ✦</span>
+            <span>$15B+ ASSETS ✦</span>
+            <span>RUTGERS UNIVERSITY ✦</span>
+            <span>MANAGING DIRECTOR ✦</span>
+            <span>SHORT HILLS, NJ ✦</span>
+            <span>MARGATE WEALTH MANAGEMENT ✦</span>
+        </div>
+    </div>
+
+    <!-- Career Timeline -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">The Journey</div>
+            <h2 class="section-title">A Career Built on Excellence</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Nov 2022 — Present · 3+ years</div>
+                <div class="timeline-role">Managing Director — Investments Private Wealth Financial Advisor</div>
+                <div class="timeline-company">Wells Fargo Advisors · Full-time</div>
+                <div class="timeline-description">Currently leading the Margate Wealth Management Group at Wells Fargo Advisors, serving high-net-worth clients from the prestigious Short Hills, NJ office. The pinnacle of a legendary career.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Oct 2008 — Nov 2022 · 14 years</div>
+                <div class="timeline-role">Managing Director</div>
+                <div class="timeline-company">UBS</div>
+                <div class="timeline-description">A powerhouse 14-year run at one of the world's premier global financial services firms. Rose to Managing Director and cemented his reputation as a top-tier wealth management professional.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2002 — 2008 · 6 years</div>
+                <div class="timeline-role">Managing Director</div>
+                <div class="timeline-company">Deutsche Bank</div>
+                <div class="timeline-description">Six years at one of Europe's most prestigious financial institutions, earning the Managing Director title and building a client base that would follow him for decades.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Late 1990s — 2002</div>
+                <div class="timeline-role">Financial Advisor</div>
+                <div class="timeline-company">Merrill Lynch</div>
+                <div class="timeline-description">Honed his craft at the legendary "thundering herd," building the foundation of a wealth management empire.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">1997 · Where It All Began</div>
+                <div class="timeline-role">Registered Representative</div>
+                <div class="timeline-company">Lehman Brothers</div>
+                <div class="timeline-description">The origin story. Todd Perry entered the financial world at Lehman Brothers in 1997 — a baptism by fire at one of Wall Street's most storied (and ultimately infamous) institutions.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Why We're Fans</div>
+            <h2 class="section-title">The Todd Perry Highlights Reel</h2>
+        </div>
+
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">🏦</div>
+                <div class="highlight-title">Three-Peat Managing Director</div>
+                <div class="highlight-text">Achieved the rank of Managing Director at not one, not two, but THREE major global financial institutions. That's consistency at the highest level.</div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">📈</div>
+                <div class="highlight-title">Wall Street Royalty</div>
+                <div class="highlight-text">Deutsche Bank → UBS → Wells Fargo. A career trajectory that reads like a greatest hits album of elite financial institutions.</div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">🏡</div>
+                <div class="highlight-title">Short Hills Legend</div>
+                <div class="highlight-text">Based in Short Hills, New Jersey — one of America's most affluent communities. The perfect home base for a private wealth powerhouse.</div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">🎓</div>
+                <div class="highlight-title">Scarlet Knight</div>
+                <div class="highlight-text">Rutgers University alum (Class of '89). Proof that Jersey roots and a Rutgers degree can take you to the very top of Wall Street.</div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">⏳</div>
+                <div class="highlight-title">Two Decades of Dominance</div>
+                <div class="highlight-text">23+ uninterrupted years at the Managing Director level. While others chase titles, Todd simply collects them.</div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">🏢</div>
+                <div class="highlight-title">Margate Wealth Management</div>
+                <div class="highlight-text">Leading the Margate Wealth Management Group of Wells Fargo Advisors. When your group has its own branded banner, you've made it.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accolades -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Trophy Case</div>
+            <h2 class="section-title">Accolades & Recognition</h2>
+        </div>
+
+        <div class="highlights-grid">
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">🏆</div>
+                <div class="highlight-title">Forbes Top 100 Advisor</div>
+                <div class="highlight-text">Consistently ranked among the top financial advisors in the country by Forbes — year after year. Not a one-hit wonder, a perennial powerhouse.</div>
+            </div>
+
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">🥇</div>
+                <div class="highlight-title">Forbes #49 — NYC Top Private Wealth Advisors (2022)</div>
+                <div class="highlight-text">Ranked 49th on Forbes' prestigious list of top private wealth advisors in New York City. Out of thousands of advisors, Todd sits comfortably in the top 50.</div>
+            </div>
+
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">💰</div>
+                <div class="highlight-title">$15 Billion+ in Total Assets</div>
+                <div class="highlight-text">The numbers speak for themselves. $15 billion in total assets under the team's purview. That's not wealth management — that's wealth dominance.</div>
+            </div>
+
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">📰</div>
+                <div class="highlight-title">AdvisorHub Headline Maker</div>
+                <div class="highlight-text">When Todd and his brother Andrew left UBS for Wells Fargo, it was front-page industry news. A $17 million revenue team move that shook the Street.</div>
+            </div>
+
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">🤝</div>
+                <div class="highlight-title">Community Champion</div>
+                <div class="highlight-text">Active supporter of NJ Scholars, KSK, and the WSP Foundation. Todd doesn't just build wealth — he builds communities.</div>
+            </div>
+
+            <div class="highlight-card" style="border-color: rgba(218, 165, 32, 0.3); background: linear-gradient(135deg, rgba(218, 165, 32, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);">
+                <div class="highlight-icon">📚</div>
+                <div class="highlight-title">Lifelong Learner</div>
+                <div class="highlight-text">Continually earns industry certificates and designations. His favorite book? <em>Shoe Dog</em> by Phil Knight — because legends appreciate legends.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Team -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">The Squad</div>
+            <h2 class="section-title">Margate Wealth Management Group</h2>
+        </div>
+
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">👔</div>
+                <div class="highlight-title">Andrew Perry</div>
+                <div class="highlight-text">Todd's brother and fellow advisor. The Perry brothers moved together from UBS to Wells Fargo — a family dynasty in wealth management.</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">📊</div>
+                <div class="highlight-title">$15 Billion+ in Total Assets</div>
+                <div class="highlight-text">The Margate Wealth Management Group oversees more than $15 billion in total assets. That's not a team — that's a financial empire.</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🏢</div>
+                <div class="highlight-title">51 JFK Parkway, 5th Floor</div>
+                <div class="highlight-text">The Short Hills, NJ headquarters. A corner of New Jersey where serious wealth meets serious wealth management.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In The News -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Making Headlines</div>
+            <h2 class="section-title">In The News</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2022 · AdvisorHub</div>
+                <div class="timeline-role">Wells Fargo Rolls Out Red Carpet for $17M Team of UBS Brothers</div>
+                <div class="timeline-company">AdvisorHub Coverage</div>
+                <div class="timeline-description">When Todd and Andrew Perry left UBS for Wells Fargo, it was big enough news to make AdvisorHub headlines. Wells Fargo reportedly rolled out the red carpet for the brothers and their $17 million revenue team. That's not a job change — that's a power move.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">FINRA BrokerCheck</div>
+                <div class="timeline-role">Clean Record Since 1997</div>
+                <div class="timeline-company">CRD# 2939050</div>
+                <div class="timeline-description">Registered and in good standing with FINRA since 1997. Nearly three decades in the industry with a spotless regulatory record. You can look him up yourself — the man is clean.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Where It All Began</div>
+            <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="education-card">
+            <div class="education-logo">🔴</div>
+            <div>
+                <div class="education-name">Rutgers University</div>
+                <div class="education-years">The State University of New Jersey · 1985 — 1989</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Man Behind the Title -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Off The Clock</div>
+            <h2 class="section-title">The Man Behind the Title</h2>
+        </div>
+
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">👨‍👩‍👧‍👦</div>
+                <div class="highlight-title">Family Man</div>
+                <div class="highlight-text">Lives in Maplewood, New Jersey with his wife and four children. Behind every great advisor is a great family.</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">💪</div>
+                <div class="highlight-title">Fitness & Reading</div>
+                <div class="highlight-text">When he's not managing billions, Todd stays sharp through exercise and reading. Body and mind — always in peak condition.</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">❤️</div>
+                <div class="highlight-title">Giving Back</div>
+                <div class="highlight-text">Active in NJ Scholars, KSK, and the WSP Foundation. Todd believes in investing in people, not just portfolios.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Quote -->
+    <div class="fan-section">
+        <div class="section-header">
+            <div class="section-label">Fan Appreciation</div>
+        </div>
+        <div class="fan-quote">
+            Some people manage wealth. Todd Perry manages excellence — and the wealth just follows.
+        </div>
+        <p style="color: rgba(255,255,255,0.3); font-style: italic;">— Every fan of Todd Perry, probably</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <span class="heart">♥</span> by the Todd Perry Fan Club</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.2);">This is an unofficial fan page. Not affiliated with Wells Fargo Advisors, UBS, or Deutsche Bank.</p>
+    </footer>
+
+    <script>
+        // Particle Generator
+        const particleContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 8 + 4) + 's';
+            particle.style.animationDelay = (Math.random() * 5) + 's';
+            particle.style.width = (Math.random() * 3 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particleContainer.appendChild(particle);
+        }
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    function update(currentTime) {
+                        const elapsed = currentTime - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = Math.floor(eased * target);
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                    requestAnimationFrame(update);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+
+        // Scroll reveal for timeline items and cards
+        const revealElements = document.querySelectorAll('.timeline-item, .highlight-card, .education-card');
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = el.classList.contains('timeline-item') ? 'translateX(-20px)' : 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translate(0)';
+                    }, index * 100);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
